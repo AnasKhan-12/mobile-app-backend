@@ -1,0 +1,45 @@
+{
+  "rows_total": 178953,
+  "rows_train": 142087,
+  "rows_test": 36866,
+  "cycles_total": 100,
+  "ocv_lookup_points": 9,
+  "soc_model": {
+    "target": "soc",
+    "best_iteration": 180,
+    "train": {
+      "rmse": 4.780537965389417,
+      "mae": 2.591659169599924
+    },
+    "test": {
+      "rmse": 5.133472193204764,
+      "mae": 2.8209566031292357
+    },
+    "feature_importance_gain": {
+      "voltage": 533773801.40081024,
+      "c_rate": 484437666.3950043
+    }
+  },
+  "soh_model": {
+    "target": "soh",
+    "best_iteration": 179,
+    "train": {
+      "rmse": 7.9897391247311225,
+      "mae": 5.462615339214349
+    },
+    "test": {
+      "rmse": 9.273426295135687,
+      "mae": 6.629538347865878
+    },
+    "feature_importance_gain": {
+      "voltage": 66288492.71570587,
+      "c_rate": 57760599.59793091
+    }
+  },
+  "artifacts": {
+    "soc_model": "F:\\FYP-II\\models\\artifacts\\soc_lgbm.txt",
+    "soh_model": "F:\\FYP-II\\models\\artifacts\\soh_lgbm.txt",
+    "ocv_table": "F:\\FYP-II\\models\\artifacts\\ocv_soc_lookup.csv",
+    "training_data": "F:\\FYP-II\\models\\artifacts\\engineered_training_data.csv"
+  }
+}
