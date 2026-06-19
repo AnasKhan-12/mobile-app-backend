@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Battery Monitor",
+    "slug": "battery-monitor",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#080c14"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#080c14"
+      },
+      "package": "com.ans_amanullah.batterymonitor"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f823c57f-7e74-48e0-a9dc-db5a34be25de"
+      }
+    }
+  }
+}

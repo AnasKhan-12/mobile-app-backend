@@ -1,0 +1,18 @@
+/catboost_info
+/dataset
+/ML_Based_Smart_Battery_Management_System_for_EV
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment secrets — NEVER commit these
+backend/.env
+.env
+
+# Test scripts
+backend/test_mqtt_receive.py
+
+# Large model files (too big for GitHub)
+*.pkl
