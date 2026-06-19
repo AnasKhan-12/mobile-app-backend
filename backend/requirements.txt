@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+paho-mqtt
+supabase
+python-dotenv
+lightgbm
+numpy
+pandas
+scikit-learn
