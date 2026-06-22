@@ -57,7 +57,8 @@ def predict_soc(
 
     predictor = _get_predictor()
     _, c_rate = predictor.hardware_features(voltage, current)
-    is_charging = bool(current > 0)
+    # Sensor polarity: negative current = charging, positive = discharging
+    is_charging = bool(current < 0)
 
     if all(v is not None for v in (cell1, cell2, cell3)):
         soc1, method1 = predictor.predict_soc(cell1, c_rate)
