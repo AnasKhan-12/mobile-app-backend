@@ -538,7 +538,7 @@ export default function App() {
                     borderColor: isLight ? SKY + '60' : T.border,
                     ...T.shadow,
                 }}>
-                    <CircularGauge value={battery.soc}  size={140} strokeWidth={10} color={socColor} label="State of Charge" unit="%" sublabel={battery.socMethod === 'ocv_lookup' ? 'SoC · OCV' : battery.socMethod === 'lightgbm' ? 'SoC · ML' : 'SoC'} T={T} />
+                    <CircularGauge value={battery.soc}  size={140} strokeWidth={10} color={socColor} label="State of Charge" unit="%" sublabel={battery.socMethod === 'ocv_lookup' ? 'SoC' : battery.socMethod === 'lightgbm' ? 'SoC · ML' : 'SoC'} T={T} />
                     <CircularGauge value={battery.soh}  size={140} strokeWidth={10} color={sohColor} label="State of Health"  unit="%" sublabel={battery.soh ? 'SoH' : 'Not Available'} T={T} />
                 </View>
 
