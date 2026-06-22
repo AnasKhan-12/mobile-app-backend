@@ -31,6 +31,14 @@ import {
 // ─── ⚙️  CONFIG — Change this to your PC's WiFi IP ───────────────────────────
 const API_BASE_URL = 'https://bms-backend-lbk7.onrender.com';
 const POLL_INTERVAL_MS = 3000;   // fetch new data every 3 seconds
+const FETCH_TIMEOUT_MS = 30000;  // Render free tier can take ~30s to wake from sleep
+
+// AbortSignal.timeout() is not available in React Native Hermes (release APK).
+function fetchWithTimeout(url, options = {}, timeoutMs = FETCH_TIMEOUT_MS) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    return fetch(url, { ...options, signal: controller.signal }).finally(() => clearTimeout(timer));
+}
 // ──────────────────────────────────────────────────────────────────────────────
 
 const { width } = Dimensions.get('window');
@@ -366,11 +374,9 @@ export default function App() {
     // ── Fetch latest reading from FastAPI backend ─────────────────────────────
     const fetchLatest = useCallback(async () => {
         try {
-            const response = await fetch(`${API_BASE_URL}/latest`, {
+            const response = await fetchWithTimeout(`${API_BASE_URL}/latest`, {
                 method:  'GET',
                 headers: { 'Content-Type': 'application/json' },
-                // 5 second timeout
-                signal:  AbortSignal.timeout(5000),
             });
 
             if (!response.ok) {
